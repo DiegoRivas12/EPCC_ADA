@@ -19,12 +19,18 @@ int main(){
 
 int maxProduct(vector<int>A,int lon){
     int resultado=A[lon-1];
-    for(int i=lon-1;i>=0;i--){//Recorre todo el array
-        for(int j=i-1;j>=0;j--){//No es necesario analizar los numeros mas a la izquierd aa medida que avanza
-            if(A[i]*A[j]>resultado){
-                resultado=A[i]*A[j];
+
+    int tmp=A[lon-1];//Valor que analizamos y mutiplicamos con todo los demas haciendo parejas
+    for(int i=lon-2;i>=0;i--){//i recorre todos los numeros a la izquierda del numero analizado tmp
+            if(tmp*A[i]>resultado){
+                resultado=tmp*A[i];
             }
-        }
+            if(!A.empty() && i==0){//Una vez que ya recorrimso todo el arreglo
+                //tmp=tmp-1;
+                A.pop_back();
+                lon=A.size();
+                tmp=A[lon-1];
+            }
     }
     return resultado;
 }

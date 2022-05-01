@@ -51,5 +51,4 @@ int maxProduct(int*A,int lon){
         }
     }
     return resultado;
-}
-*/
+}*/

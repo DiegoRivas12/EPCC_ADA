@@ -6,12 +6,12 @@ using namespace std;
 int greatestNumber(int*);
 int main(){
 
-    int array[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int array[10] = {1,2,3,4,5,6,7,8,9,10};
 
-    int mayor;
+    int mayor=array[0];
     
     //Complejidad O(n^2)
-    for( int i : array ) {//O(n)
+    /*for( int i : array ) {//O(n)
         bool isValTheGreatest=true;
         for(auto j : array){//O(n)
             if(j>i)
@@ -19,6 +19,14 @@ int main(){
         }
         if(isValTheGreatest)
            mayor=i;
+    }*/
+
+    int i=mayor;
+
+    for(auto j : array){//O(n)
+        if(j>i){
+            mayor=j;
+        }
     }
 
     cout<<"El numero amyor del arreglo es:"<<mayor<<endl;

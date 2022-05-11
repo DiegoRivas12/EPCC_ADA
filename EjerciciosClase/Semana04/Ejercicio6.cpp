@@ -1,4 +1,18 @@
+//Caso equivalente al ejercicio
+/*
+for(i=1; i<n; i=i*2){
+    statement;
+}
 
+i 1      |   i>=n           |   log(n)  n=8
+  2      |   2^k>=n         |          i 1 
+  2*2    |   lo2^k>=logn    |          i 2  O(logn)
+  2*2*2  |   klog2>=logn    |          i 4
+  2^k    |   k>=logn        |          i 8
+
+*/
+
+//Ejercicio
 /*
 for(i=0; i*i<n ; i++){
     statement

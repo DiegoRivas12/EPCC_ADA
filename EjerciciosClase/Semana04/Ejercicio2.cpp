@@ -11,6 +11,7 @@ int main(){
     for(int i=0;i<lon;i++){
         array[i]=i;
     }
+    //Complejidad O(n^2)
     every_other(array,lon,2);
     delete[] array;
 
@@ -24,13 +25,13 @@ void every_other(int*array,int lon,int number){
     index=each_width_index;
     //cout<<index<<endl;
     srand(time(0));
-    while(true){
+    while(true){//O(n)
         if(index%2==0){
-           otherNumber=rand()%lon;//Generamos un numero que no salga del rango de elementos
+           otherNumber=rand()%lon;// //O(1) Generamos un numero que no salga del rango de elementos
 
-           index=(number+otherNumber)%lon;
+           index=(number+otherNumber)%lon;//O(1)
 
-           each_width_index=devolver_indice(array,number,lon);
+           each_width_index=devolver_indice(array,number,lon);//O(n)
           
         }
         else{

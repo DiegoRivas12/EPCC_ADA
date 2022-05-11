@@ -11,21 +11,35 @@ int main(){
     for(int i=0;i<lon;i++){
         resumes.push_back(i+1);
     }
-
+     //Complejidad O(nlogn)
     cout<<pick_resume(resumes)<<endl;
 
     return 0;
 }
 int pick_resume(vector<int> resumes){
     string eliminate = "top";
-    while(resumes.size()>1){
+    vector<int> resumes1;
+
+    printVectorElements(resumes);
+
+    while(resumes.size()>1){//O(logn)
         if(eliminate=="top"){
-            resumes.resize(resumes.size()-resumes.size()/2);//Eliminamos de la mitad para arriba
+            
+            resumes1.resize(0);//limpiamos el vector intermediario
+            for(int i=resumes.size()/2;i<=resumes.size()-1;i++){// O(n) Eliminamos de la mitad para arriba
+                resumes1.push_back(resumes[i]);
+            }
+            resumes=resumes1;
             printVectorElements(resumes);
             eliminate="bottom";
         }
         else if(eliminate=="bottom"){
-            resumes.erase(resumes.begin() + resumes.size()/2, resumes.end());//Conservamos de la mitad para abajo
+            
+            resumes1.resize(0);//limpiamos el vector intermediario
+            for(int i=0;i<=resumes.size()/2;i++){// O(n) Conservamos de la mitad para abajo
+                resumes1.push_back(resumes[i]);
+            }
+            resumes=resumes1;
             printVectorElements(resumes);
             eliminate="top";
         }
